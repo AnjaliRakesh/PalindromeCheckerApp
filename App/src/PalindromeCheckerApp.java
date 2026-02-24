@@ -7,5 +7,13 @@ public class PalindromeCheckerApp {
         System.out.println(" Version: 1.0");
         System.out.println("=================================");
 
+        // UC2: Hardcoded Palindrome Check
+        String word = "madam";
+
+        if (word.equals("madam")) {
+            System.out.println(word + " is a Palindrome");
+        } else {
+            System.out.println(word + " is NOT a Palindrome");
+        }
     }
 }
