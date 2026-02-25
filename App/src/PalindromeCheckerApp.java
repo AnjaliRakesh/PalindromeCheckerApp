@@ -1,7 +1,11 @@
+import java.util.Scanner;
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
+        // UC1: Application Entry & Welcome Message
         System.out.println("=================================");
         System.out.println(" Welcome to Palindrome Checker App");
         System.out.println(" Version: 1.0");
@@ -51,5 +55,31 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(word4 + " is NOT a Palindrome (UC4)");
         }
+
+        // UC5: Stack-Based Palindrome Checker (User Input)
+        Scanner scanner = new Scanner(System.in);
+        Stack<Character> stack = new Stack<>();
+
+        System.out.print("Enter a word to check palindrome (UC5): ");
+        String input = scanner.nextLine();
+
+        // Push characters into stack
+        for (int i = 0; i < input.length(); i++) {
+            stack.push(input.charAt(i));
+        }
+
+        // Pop characters and build reversed string
+        String reversedInput = "";
+        while (!stack.isEmpty()) {
+            reversedInput = reversedInput + stack.pop();
+        }
+
+        if (input.equals(reversedInput)) {
+            System.out.println(input + " is a Palindrome (UC5)");
+        } else {
+            System.out.println(input + " is NOT a Palindrome (UC5)");
+        }
+
+        scanner.close();
     }
 }
