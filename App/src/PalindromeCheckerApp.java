@@ -193,6 +193,7 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(input8 + " is NOT a Palindrome (UC8)");
         }
+
         // UC9: Recursive Palindrome Checker
         System.out.print("Enter a word to check palindrome (UC9): ");
         String input9 = scanner.nextLine();
@@ -208,7 +209,7 @@ public class PalindromeCheckerApp {
         scanner.close();
     }
 
-    // Node class for Linked List (UC8)
+    // Node class for UC8
     static class Node {
         char data;
         Node next;
@@ -217,5 +218,19 @@ public class PalindromeCheckerApp {
             this.data = data;
             this.next = null;
         }
+    }
+
+    // UC9 Recursive Method
+    static boolean isPalindromeRecursive(String str, int left, int right) {
+
+        if (left >= right) {
+            return true;
+        }
+
+        if (str.charAt(left) != str.charAt(right)) {
+            return false;
+        }
+
+        return isPalindromeRecursive(str, left + 1, right - 1);
     }
 }
