@@ -9,6 +9,8 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
+
         // UC1: Application Entry & Welcome Message
         System.out.println("=================================");
         System.out.println(" Welcome to Palindrome Checker App");
@@ -60,20 +62,18 @@ public class PalindromeCheckerApp {
             System.out.println(word4 + " is NOT a Palindrome (UC4)");
         }
 
-        // UC5: Stack-Based Palindrome Checker (User Input)
-        Scanner scanner = new Scanner(System.in);
+        // UC5: Stack-Based Palindrome Checker
         Stack<Character> stack = new Stack<>();
 
         System.out.print("Enter a word to check palindrome (UC5): ");
         String input = scanner.nextLine();
 
-        // Push characters into stack
         for (int i = 0; i < input.length(); i++) {
             stack.push(input.charAt(i));
         }
 
-        // Pop characters and build reversed string
         String reversedInput = "";
+
         while (!stack.isEmpty()) {
             reversedInput = reversedInput + stack.pop();
         }
@@ -84,7 +84,6 @@ public class PalindromeCheckerApp {
             System.out.println(input + " is NOT a Palindrome (UC5)");
         }
 
-        scanner.close();
         // UC6: Queue + Stack Based Palindrome Check
         Queue<Character> queue = new LinkedList<>();
         Stack<Character> stackUC6 = new Stack<>();
@@ -92,14 +91,12 @@ public class PalindromeCheckerApp {
         System.out.print("Enter a word to check palindrome (UC6): ");
         String input6 = scanner.nextLine();
 
-        // Add characters to queue and stack
         for (int i = 0; i < input6.length(); i++) {
             char ch = input6.charAt(i);
             queue.add(ch);
             stackUC6.push(ch);
         }
 
-        // Compare queue (FIFO) with stack (LIFO)
         boolean isPalindromeUC6 = true;
 
         while (!queue.isEmpty()) {
@@ -114,20 +111,19 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(input6 + " is NOT a Palindrome (UC6)");
         }
+
         // UC7: Deque-Based Palindrome Checker
         Deque<Character> deque = new ArrayDeque<>();
 
         System.out.print("Enter a word to check palindrome (UC7): ");
         String input7 = scanner.nextLine();
 
-// Insert characters into deque
         for (int i = 0; i < input7.length(); i++) {
             deque.addLast(input7.charAt(i));
         }
 
         boolean isPalindromeUC7 = true;
 
-// Compare front and rear characters
         while (deque.size() > 1) {
             if (deque.removeFirst() != deque.removeLast()) {
                 isPalindromeUC7 = false;
@@ -139,6 +135,76 @@ public class PalindromeCheckerApp {
             System.out.println(input7 + " is a Palindrome (UC7)");
         } else {
             System.out.println(input7 + " is NOT a Palindrome (UC7)");
+        }
+
+        // UC8: Linked List Based Palindrome Checker
+        System.out.print("Enter a word to check palindrome (UC8): ");
+        String input8 = scanner.nextLine();
+
+        Node head = null;
+        Node tail = null;
+
+        for (int i = 0; i < input8.length(); i++) {
+            Node newNode = new Node(input8.charAt(i));
+
+            if (head == null) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        Node prev = null;
+        Node current = slow;
+
+        while (current != null) {
+            Node next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        Node first = head;
+        Node second = prev;
+
+        boolean isPalindromeUC8 = true;
+
+        while (second != null) {
+            if (first.data != second.data) {
+                isPalindromeUC8 = false;
+                break;
+            }
+            first = first.next;
+            second = second.next;
+        }
+
+        if (isPalindromeUC8) {
+            System.out.println(input8 + " is a Palindrome (UC8)");
+        } else {
+            System.out.println(input8 + " is NOT a Palindrome (UC8)");
+        }
+
+        scanner.close();
+    }
+
+    // Node class for Linked List (UC8)
+    static class Node {
+        char data;
+        Node next;
+
+        Node(char data) {
+            this.data = data;
+            this.next = null;
         }
     }
 }
