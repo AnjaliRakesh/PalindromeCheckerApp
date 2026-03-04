@@ -46,3 +46,9 @@ Use Case 1 (UC1): Application Entry & Welcome Message
 - Uses recursion to compare characters from start and end
 - Base condition stops recursion when indexes cross
 - Demonstrates the use of the call stack
+## Use Case 10 (UC10): Case-Insensitive & Space-Ignored Palindrome
+
+- Removes spaces using regular expressions
+- Converts the string to lowercase
+- Compares characters from both ends
+- Determines if the sentence is a palindrome
