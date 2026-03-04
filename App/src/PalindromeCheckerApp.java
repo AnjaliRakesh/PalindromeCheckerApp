@@ -231,6 +231,18 @@ public class PalindromeCheckerApp {
             System.out.println(input10 + " is NOT a Palindrome (UC10)");
         }
 
+        // UC11: Object-Oriented Palindrome Service
+        PalindromeChecker checker = new PalindromeChecker();
+
+        System.out.print("Enter a word to check palindrome (UC11): ");
+        String input11 = scanner.nextLine();
+
+        if (checker.checkPalindrome(input11)) {
+            System.out.println(input11 + " is a Palindrome (UC11)");
+        } else {
+            System.out.println(input11 + " is NOT a Palindrome (UC11)");
+        }
+
         scanner.close();
     }
 
@@ -257,5 +269,25 @@ public class PalindromeCheckerApp {
         }
 
         return isPalindromeRecursive(str, left + 1, right - 1);
+    }
+}
+
+// UC11 Service Class
+class PalindromeChecker {
+
+    public boolean checkPalindrome(String input) {
+
+        int left = 0;
+        int right = input.length() - 1;
+
+        while (left < right) {
+            if (input.charAt(left) != input.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
     }
 }
