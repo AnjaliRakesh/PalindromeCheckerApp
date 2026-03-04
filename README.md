@@ -57,9 +57,28 @@ Use Case 1 (UC1): Application Entry & Welcome Message
 - Encapsulates palindrome checking logic inside a separate class.
 - Uses `checkPalindrome()` method to validate input.
 
+
 ### Key Concepts
 - Encapsulation
 - Single Responsibility Principle
 
 ### Data Structure
 Internal comparison using character positions.
+## UC12 – Strategy Pattern for Palindrome Algorithms
+
+**Goal:**  
+Choose a palindrome algorithm dynamically.
+
+**Flow:**
+1. Define `PalindromeStrategy` interface
+2. Implement `StackStrategy` and `DequeStrategy`
+3. Select strategy at runtime
+4. Execute selected algorithm to check palindrome
+
+**Key Concepts:**
+- Interface
+- Polymorphism
+- Strategy Design Pattern
+
+**Data Structure:**  
+Stack / Deque
