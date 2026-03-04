@@ -29,3 +29,9 @@ Use Case 1 (UC1): Application Entry & Welcome Message
 - Inserts characters into both a Queue (FIFO) and a Stack (LIFO)
 - Dequeues from queue and pops from stack
 - Compares both outputs to determine palindrome
+## Use Case 7 (UC7): Deque-Based Palindrome Checker
+
+- Uses a Deque (Double Ended Queue)
+- Inserts characters into the deque
+- Removes characters from front and rear
+- Compares them to check if the word is a palindrome
