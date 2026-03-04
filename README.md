@@ -17,3 +17,15 @@ Use Case 1 (UC1): Application Entry & Welcome Message
 - Converts string to character array
 - Uses two-pointer technique
 - Compares characters from start and end
+## Use Case 5 (UC5): Stack-Based Palindrome Checker
+
+- Accepts input from the user
+- Pushes each character into a stack (LIFO)
+- Pops characters to form the reversed string
+- Compares original and reversed strings
+- Displays whether the input is a palindrome
+## Use Case 6 (UC6): Queue + Stack Based Palindrome Check
+
+- Inserts characters into both a Queue (FIFO) and a Stack (LIFO)
+- Dequeues from queue and pops from stack
+- Compares both outputs to determine palindrome
