@@ -35,3 +35,9 @@ Use Case 1 (UC1): Application Entry & Welcome Message
 - Inserts characters into the deque
 - Removes characters from front and rear
 - Compares them to check if the word is a palindrome
+## Use Case 8 (UC8): Linked List Based Palindrome Checker
+
+- Converts the input string into a singly linked list
+- Uses fast and slow pointer technique to find the middle
+- Reverses the second half of the linked list
+- Compares both halves to determine palindrome
