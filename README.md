@@ -41,3 +41,8 @@ Use Case 1 (UC1): Application Entry & Welcome Message
 - Uses fast and slow pointer technique to find the middle
 - Reverses the second half of the linked list
 - Compares both halves to determine palindrome
+## Use Case 9 (UC9): Recursive Palindrome Checker
+
+- Uses recursion to compare characters from start and end
+- Base condition stops recursion when indexes cross
+- Demonstrates the use of the call stack
