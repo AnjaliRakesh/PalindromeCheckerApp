@@ -193,6 +193,7 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(input8 + " is NOT a Palindrome (UC8)");
         }
+
         // UC9: Recursive Palindrome Checker
         System.out.print("Enter a word to check palindrome (UC9): ");
         String input9 = scanner.nextLine();
@@ -205,10 +206,35 @@ public class PalindromeCheckerApp {
             System.out.println(input9 + " is NOT a Palindrome (UC9)");
         }
 
+        // UC10: Case-Insensitive & Space-Ignored Palindrome
+        System.out.print("Enter a sentence to check palindrome (UC10): ");
+        String input10 = scanner.nextLine();
+
+        String normalized = input10.replaceAll("\\s+", "").toLowerCase();
+
+        int left10 = 0;
+        int right10 = normalized.length() - 1;
+        boolean isPalindromeUC10 = true;
+
+        while (left10 < right10) {
+            if (normalized.charAt(left10) != normalized.charAt(right10)) {
+                isPalindromeUC10 = false;
+                break;
+            }
+            left10++;
+            right10--;
+        }
+
+        if (isPalindromeUC10) {
+            System.out.println(input10 + " is a Palindrome (UC10)");
+        } else {
+            System.out.println(input10 + " is NOT a Palindrome (UC10)");
+        }
+
         scanner.close();
     }
 
-    // Node class for Linked List (UC8)
+    // Node class for UC8
     static class Node {
         char data;
         Node next;
@@ -217,5 +243,19 @@ public class PalindromeCheckerApp {
             this.data = data;
             this.next = null;
         }
+    }
+
+    // UC9 Recursive Method
+    static boolean isPalindromeRecursive(String str, int left, int right) {
+
+        if (left >= right) {
+            return true;
+        }
+
+        if (str.charAt(left) != str.charAt(right)) {
+            return false;
+        }
+
+        return isPalindromeRecursive(str, left + 1, right - 1);
     }
 }
